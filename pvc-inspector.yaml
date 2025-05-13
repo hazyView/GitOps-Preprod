@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvc-inspector
+  namespace: preprod
+spec:
+  containers:
+  - name: inspector
+    image: busybox
+    command: ["/bin/sh", "-c", "sleep 3600"]
+    volumeMounts:
+    - mountPath: /data
+      name: preprod-storage
+  volumes:
+  - name: preprod-storage
+    persistentVolumeClaim:
+      claimName: preprod-pvc

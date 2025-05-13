@@ -1,10 +1,10 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: preprod-pvc
+  name: pv-preprod
   namespace: preprod
 spec:
-  storageClassName: preprod
+  storageClassName: pv-preprod
   accessModes:
     - ReadWriteOnce
   resources:
